@@ -1,17 +1,17 @@
-# Triage Labels
+# 트리아지 라벨
 
-The skills speak in terms of five canonical triage roles. This file maps those roles to the actual label strings used in this repo's issue tracker.
+스킬들은 5개의 표준 트리아지 역할로 말한다. 이 파일은 그 역할을 이 레포 이슈 트래커에서 실제 쓰는 라벨 문자열에 매핑한다.
 
-Since this repo uses a local-markdown tracker, "labels" are written as the `Status:` line near the top of each issue file (see `issue-tracker.md`).
+이 레포는 로컬 마크다운 트래커를 쓰므로 "라벨"은 각 이슈 파일 상단의 `Status:` 줄에 기록한다 (`issue-tracker.md` 참조).
 
-| Label in mattpocock/skills | Label in our tracker | Meaning                                  |
-| -------------------------- | -------------------- | ---------------------------------------- |
-| `needs-triage`             | `needs-triage`       | Maintainer needs to evaluate this issue  |
-| `needs-info`               | `needs-info`         | Waiting on reporter for more information |
-| `ready-for-agent`          | `ready-for-agent`    | Fully specified, ready for an AFK agent  |
-| `ready-for-human`          | `ready-for-human`    | Requires human implementation            |
-| `wontfix`                  | `wontfix`            | Will not be actioned                     |
+| mattpocock/skills 라벨 | 우리 트래커 라벨   | 의미                          |
+| ---------------------- | ----------------- | ----------------------------- |
+| `needs-triage`         | `needs-triage`    | 메인테이너가 이슈를 평가해야 함 |
+| `needs-info`           | `needs-info`      | 리포터의 추가 정보 대기 중      |
+| `ready-for-agent`      | `ready-for-agent` | 완전 명세, AFK 에이전트 준비됨  |
+| `ready-for-human`      | `ready-for-human` | 사람의 구현이 필요함           |
+| `wontfix`              | `wontfix`         | 처리하지 않음                  |
 
-When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
+스킬이 역할을 언급하면(예: "AFK 준비 트리아지 라벨 적용") 이 표에서 대응하는 라벨 문자열을 사용한다.
 
-Edit the right-hand column to match whatever vocabulary you actually use.
+실제 사용하는 어휘에 맞게 오른쪽 열을 편집하면 된다.
