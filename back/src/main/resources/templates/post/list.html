@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>글 목록</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-bold">글 목록</h1>
+        <a sec:authorize="isAuthenticated()" th:href="@{/posts/new}" class="btn btn-primary btn-sm">글 작성</a>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>조회</th>
+            <th>작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts.content}">
+            <td th:text="${post.id}">1</td>
+            <td><a th:href="@{/posts/{id}(id=${post.id})}" class="link" th:text="${post.title}">제목</a></td>
+            <td th:text="${post.author.nickname}">작성자</td>
+            <td th:text="${post.viewCount}">0</td>
+            <td th:text="${#temporals.format(post.createDate, 'yyyy-MM-dd HH:mm')}">날짜</td>
+        </tr>
+        <tr th:if="${posts.isEmpty()}">
+            <td colspan="5" class="text-center text-base-content/60">글이 없습니다.</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="join mt-4" th:if="${posts.totalPages > 0}">
+        <a class="join-item btn btn-sm" th:classappend="${!posts.hasPrevious()} ? 'btn-disabled'"
+           th:href="@{/posts(page=${posts.number - 1})}">«</a>
+        <a th:each="i : ${#numbers.sequence(0, posts.totalPages - 1)}"
+           class="join-item btn btn-sm"
+           th:classappend="${i == posts.number} ? 'btn-active'"
+           th:href="@{/posts(page=${i})}" th:text="${i + 1}">1</a>
+        <a class="join-item btn btn-sm" th:classappend="${!posts.hasNext()} ? 'btn-disabled'"
+           th:href="@{/posts(page=${posts.number + 1})}">»</a>
+    </div>
+</section>
+</body>
+</html>
