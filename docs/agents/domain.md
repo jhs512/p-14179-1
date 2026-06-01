@@ -1,17 +1,17 @@
-# Domain Docs
+# 도메인 문서
 
-How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+엔지니어링 스킬들이 코드베이스를 탐색할 때 이 레포의 도메인 문서를 어떻게 소비해야 하는지에 대한 규칙.
 
-This repo is **single-context**: one `CONTEXT.md` + `docs/adr/` at the root.
+이 레포는 **단일 컨텍스트**다: 루트에 `CONTEXT.md` + `docs/adr/` 하나.
 
-## Before exploring, read these
+## 탐색 전에 읽을 것
 
-- **`CONTEXT.md`** at the repo root
-- **`docs/adr/`** — read ADRs that touch the area you're about to work in
+- **`CONTEXT.md`** (레포 루트)
+- **`docs/adr/`** — 작업하려는 영역과 관련된 ADR을 읽는다
 
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The producer skill (`/grill-with-docs`) creates them lazily when terms or decisions actually get resolved.
+이 파일들이 없으면 **조용히 진행한다**. 부재를 알리지 말고, 미리 만들라고 제안하지도 마라. 생산자 스킬(`/grill-with-docs`)이 용어나 결정이 실제로 정해질 때 게으르게 생성한다.
 
-## File structure
+## 파일 구조
 
 ```
 /
@@ -22,14 +22,14 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 └── src/
 ```
 
-## Use the glossary's vocabulary
+## 용어집의 어휘를 사용하라
 
-When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in `CONTEXT.md`. Don't drift to synonyms the glossary explicitly avoids.
+출력에서 도메인 개념을 명명할 때(이슈 제목, 리팩토링 제안, 가설, 테스트 이름) `CONTEXT.md`에 정의된 용어를 사용한다. 용어집이 명시적으로 피하는 동의어로 표류하지 마라.
 
-If the concept you need isn't in the glossary yet, that's a signal — either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/grill-with-docs`).
+필요한 개념이 아직 용어집에 없다면 그것은 신호다 — 프로젝트가 쓰지 않는 언어를 만들어내고 있거나(재고할 것), 진짜 공백이 있거나(`/grill-with-docs`용으로 기록).
 
-## Flag ADR conflicts
+## ADR 충돌 표시
 
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
+출력이 기존 ADR과 모순되면 조용히 덮어쓰지 말고 명시적으로 드러내라:
 
-> _Contradicts ADR-0007 (event-sourced orders) — but worth reopening because…_
+> _ADR-0007(event-sourced orders)과 모순됨 — 하지만 다음 이유로 재논의할 가치가 있음…_
