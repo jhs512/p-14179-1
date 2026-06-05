@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>홈</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="hero min-h-[60vh] bg-base-200 rounded-box">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-4xl font-bold">커뮤니티 게시판</h1>
+                <p class="py-6">글과 댓글을 작성하고 서로 추천하는 공간입니다.</p>
+                <a th:href="@{/posts}" class="btn btn-primary">글 보러가기</a>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

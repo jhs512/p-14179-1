@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>글 작성</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-2xl font-bold mb-4" th:text="${post != null} ? '글 수정' : '글 작성'">글 작성</h1>
+
+        <form th:object="${postForm}" method="post" class="space-y-3"
+              th:action="${post != null} ? @{/posts/{id}/edit(id=${post.id})} : @{/posts}">
+            <div>
+                <label class="label" for="title">제목</label>
+                <input type="text" id="title" th:field="*{title}" class="input input-bordered w-full"/>
+                <p class="text-error text-sm" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">에러</p>
+            </div>
+            <div>
+                <label class="label" for="content">내용</label>
+                <textarea id="content" th:field="*{content}" rows="10" class="textarea textarea-bordered w-full"></textarea>
+                <p class="text-error text-sm" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">에러</p>
+            </div>
+            <div class="flex gap-2">
+                <button type="submit" class="btn btn-primary">저장</button>
+                <a th:href="@{/posts}" class="btn btn-ghost">취소</a>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>회원가입</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-2xl font-bold mb-4">회원가입</h1>
+
+        <form th:action="@{/member/signup}" th:object="${signupForm}" method="post" class="space-y-3">
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-error">
+                <span th:each="err : ${#fields.globalErrors()}" th:text="${err}">에러</span>
+            </div>
+            <div>
+                <label class="label" for="username">아이디</label>
+                <input type="text" id="username" th:field="*{username}" class="input input-bordered w-full"/>
+                <p class="text-error text-sm" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">에러</p>
+            </div>
+            <div>
+                <label class="label" for="password">비밀번호</label>
+                <input type="password" id="password" th:field="*{password}" class="input input-bordered w-full"/>
+                <p class="text-error text-sm" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">에러</p>
+            </div>
+            <div>
+                <label class="label" for="nickname">닉네임</label>
+                <input type="text" id="nickname" th:field="*{nickname}" class="input input-bordered w-full"/>
+                <p class="text-error text-sm" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">에러</p>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">가입하기</button>
+        </form>
+        <p class="mt-4 text-sm">이미 계정이 있나요? <a th:href="@{/member/login}" class="link">로그인</a></p>
+    </div>
+</section>
+</body>
+</html>
