@@ -1,6 +1,8 @@
 # 작업지침
 - 한국어 사용
-- 일반적인 작업 흐름 : /grill-with-docs, /to-spec, /to-tickets, /tdd and /diagnosing-bugs, /improve-codebase-architecture(이 스킬은 필요할 때만 사용)
+- 일반적인 작업 흐름 : /grill-with-docs, /to-spec, /to-tickets, /implement
+  - /implement 는 내부적으로 /tdd 로 구현하고 커밋 전에 /code-review 를 수행
+- 버그 발생 시 /diagnosing-bugs, 아키텍처 개선이 필요할 때만 /improve-codebase-architecture
 - 최대한 mattpocock 스킬들을 활용
 
 # Agent skills
